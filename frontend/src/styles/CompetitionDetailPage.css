@@ -1,0 +1,216 @@
+.competition-detail-page {
+  padding: 2rem 0;
+}
+
+.competition-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 2rem;
+}
+
+.competition-header h1 {
+  color: var(--dark-color);
+}
+
+.status-badge {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.status-badge.active {
+  background-color: var(--danger-color);
+  color: white;
+}
+
+.status-badge.upcoming {
+  background-color: var(--warning-color);
+  color: white;
+}
+
+.status-badge.completed {
+  background-color: #6c757d;
+  color: white;
+}
+
+.competition-info-section {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.info-card,
+.action-card {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.info-card h3,
+.action-card h3 {
+  margin-bottom: 1rem;
+  color: var(--dark-color);
+}
+
+.info-card p {
+  margin-bottom: 0.75rem;
+}
+
+.live-section {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.statistics-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+.statistics-section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.stat-box {
+  background: var(--bg-color);
+  padding: 1.5rem;
+  border-radius: 4px;
+  text-align: center;
+}
+
+.stat-value {
+  display: block;
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--primary-color);
+}
+
+.stat-label {
+  display: block;
+  margin-top: 0.5rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.fish-stats {
+  margin-top: 2rem;
+}
+
+.fish-stats h3 {
+  margin-bottom: 1rem;
+}
+
+.fish-table {
+  width: 100%;
+  border-collapse: collapse;
+  overflow-x: auto;
+  display: block;
+}
+
+.fish-table thead {
+  background-color: var(--dark-color);
+  color: white;
+}
+
+.fish-table th,
+.fish-table td {
+  padding: 0.75rem;
+  text-align: left;
+}
+
+.fish-table tbody tr {
+  border-bottom: 1px solid var(--border-color);
+}
+
+.fish-table tbody tr:hover {
+  background-color: #f8f9fa;
+}
+
+.photos-section {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.photos-section h2 {
+  margin-bottom: 1.5rem;
+  color: var(--dark-color);
+}
+
+.photos-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
+}
+
+.photo-card {
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.photo-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.photo-info {
+  padding: 1rem;
+  background: var(--bg-color);
+}
+
+.photo-user {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+
+.photo-species {
+  color: #666;
+  font-size: 0.9rem;
+  margin-bottom: 0.25rem;
+}
+
+.photo-points {
+  color: var(--success-color);
+  font-weight: 600;
+}
+
+@media (max-width: 768px) {
+  .competition-header {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1rem;
+  }
+
+  .competition-info-section {
+    grid-template-columns: 1fr;
+  }
+
+  .stats-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .photos-grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  }
+
+  .photo-card img {
+    height: 150px;
+  }
+}

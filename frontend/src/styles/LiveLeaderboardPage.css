@@ -1,0 +1,217 @@
+.live-leaderboard-page {
+  padding: 2rem 0;
+}
+
+.live-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.live-indicator {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: var(--danger-color);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 20px;
+  margin-bottom: 1rem;
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.8;
+  }
+}
+
+.pulse-dot {
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  animation: blink 1.5s infinite;
+}
+
+@keyframes blink {
+  0%, 100% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.live-text {
+  font-weight: bold;
+  font-size: 0.9rem;
+}
+
+.live-header h1 {
+  margin-bottom: 0.5rem;
+  color: var(--dark-color);
+}
+
+.last-update {
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.leaderboard-container {
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  overflow-x: auto;
+  margin-bottom: 2rem;
+}
+
+.leaderboard-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.leaderboard-table thead {
+  background-color: var(--dark-color);
+  color: white;
+}
+
+.leaderboard-table th {
+  padding: 1rem;
+  text-align: left;
+  font-weight: 600;
+}
+
+.leaderboard-table td {
+  padding: 1rem;
+  border-bottom: 1px solid var(--border-color);
+}
+
+.leaderboard-row {
+  transition: background-color 0.3s ease;
+}
+
+.leaderboard-row:hover {
+  background-color: #f8f9fa;
+}
+
+.leaderboard-row.podium-1 {
+  background-color: #fff9e6;
+}
+
+.leaderboard-row.podium-2 {
+  background-color: #f5f5f5;
+}
+
+.leaderboard-row.podium-3 {
+  background-color: #fff5e6;
+}
+
+.rank-col {
+  width: 80px;
+  text-align: center;
+}
+
+.medal {
+  font-size: 1.5rem;
+}
+
+.rank-number {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #666;
+}
+
+.name-col {
+  min-width: 200px;
+}
+
+.name-display {
+  display: flex;
+  flex-direction: column;
+}
+
+.username {
+  font-weight: 600;
+  color: var(--dark-color);
+}
+
+.full-name {
+  font-size: 0.85rem;
+  color: #666;
+}
+
+.fish-col {
+  width: 100px;
+  text-align: center;
+}
+
+.fish-count {
+  font-weight: 600;
+  color: var(--primary-color);
+}
+
+.points-col {
+  width: 120px;
+  text-align: center;
+}
+
+.points-display {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--success-color);
+}
+
+.time-col {
+  width: 120px;
+  text-align: center;
+  color: #666;
+}
+
+.leaderboard-info {
+  background: white;
+  padding: 1.5rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  text-align: center;
+}
+
+.leaderboard-info p {
+  margin-bottom: 0.5rem;
+  color: #666;
+}
+
+@media (max-width: 768px) {
+  .leaderboard-table {
+    font-size: 0.9rem;
+  }
+
+  .leaderboard-table th,
+  .leaderboard-table td {
+    padding: 0.75rem 0.5rem;
+  }
+
+  .rank-col {
+    width: 60px;
+  }
+
+  .name-col {
+    min-width: 150px;
+  }
+
+  .fish-col,
+  .points-col,
+  .time-col {
+    width: 80px;
+  }
+
+  .medal {
+    font-size: 1.2rem;
+  }
+
+  .points-display {
+    font-size: 1rem;
+  }
+}

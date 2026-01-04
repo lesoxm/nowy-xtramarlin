@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Tabela wyników na żywo - xTraMarlin Live Score">
+    <title>Leaderboard - xTraMarlin Live Score</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Highlight current user row */
+        .highlight-user {
+            background-color: #FEF3C7;
+            border-left: 4px solid #F59E0B;
+        }
+        
+        /* Real-time update animation */
+        @keyframes pulse-update {
+            0%, 100% { background-color: #DBEAFE; }
+            50% { background-color: #93C5FD; }
+        }
+        
+        .row-updated {
+            animation: pulse-update 1s ease-in-out;
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-sky-600">xTraMarlin</a>
+                    <span class="ml-4 text-gray-600">/ Live Score</span>
+                </div>
+                <div class="flex items-center space-x-4">
+                    <span class="flex items-center text-green-600">
+                        <span class="w-2 h-2 bg-green-600 rounded-full mr-2 animate-pulse"></span>
+                        Na żywo
+                    </span>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cel: Pokazać czytelny leaderboard z real-time updates -->
+    <!-- Integracja: API endpoint GET /api/competitions/{id}/leaderboard -->
+    <!-- Funkcje: filtry, fokus na użytkowniku, sortowanie, paginacja -->
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Competition Header -->
+        <div class="bg-white rounded-lg shadow-sm p-6 mb-6">
+            <div class="flex flex-col md:flex-row md:items-center md:justify-between">
+                <div>
+                    <h1 class="text-3xl font-bold text-gray-900 mb-2">Puchar Polski Spinning 2024 - Tura 3</h1>
+                    <p class="text-gray-600">Wisła, Warszawa • 15 marca 2024 • 08:00 - 16:00</p>
+                </div>
+                <div class="mt-4 md:mt-0">
+                    <div class="inline-block bg-green-100 text-green-800 px-4 py-2 rounded-lg font-semibold">
+                        Trwa tura • 3:24:15
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Filters and Search -->
+        <div class="bg-white rounded-lg shadow-sm p-4 mb-6">
+            <div class="flex flex-col md:flex-row gap-4">
+                <!-- Search -->
+                <div class="flex-1">
+                    <input type="text" placeholder="Szukaj zawodnika..." 
+                           class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent">
+                </div>
+                
+                <!-- Category Filter -->
+                <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent">
+                    <option>Wszystkie kategorie</option>
+                    <option>Open</option>
+                    <option>Kobiety</option>
+                    <option>Junior</option>
+                    <option>Senior</option>
+                </select>
+                
+                <!-- Sort -->
+                <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent">
+                    <option>Sortuj: Pozycja</option>
+                    <option>Sortuj: Nazwa</option>
+                    <option>Sortuj: Liczba ryb</option>
+                    <option>Sortuj: Ostatnia aktualizacja</option>
+                </select>
+                
+                <!-- View Toggle -->
+                <div class="flex border border-gray-300 rounded-lg overflow-hidden">
+                    <button class="px-4 py-2 bg-sky-50 text-sky-600 font-semibold">Tabela</button>
+                    <button class="px-4 py-2 hover:bg-gray-50">Karty</button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Leaderboard Table -->
+        <!-- Cel: Maksymalna czytelność, fokus na pozycji użytkownika -->
+        <!-- Responsive: na mobile pionowe karty, na desktop pełna tabela -->
+        <div class="bg-white rounded-lg shadow-sm overflow-hidden">
+            
+            <!-- Desktop Table View -->
+            <div class="hidden md:block overflow-x-auto">
+                <table class="w-full">
+                    <thead class="bg-gray-50 border-b border-gray-200">
+                        <tr>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Miejsce</th>
+                            <th class="px-6 py-4 text-left text-xs font-semibold text-gray-600 uppercase tracking-wider">Zawodnik</th>
+                            <th class="px-6 py-4 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Ryby</th>
+                            <th class="px-6 py-4 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Suma cm</th>
+                            <th class="px-6 py-4 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Średnia</th>
+                            <th class="px-6 py-4 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Największa</th>
+                            <th class="px-6 py-4 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Punkty</th>
+                            <th class="px-6 py-4 text-center text-xs font-semibold text-gray-600 uppercase tracking-wider">Ostatnia ryba</th>
+                        </tr>
+                    </thead>
+                    <tbody class="divide-y divide-gray-200">
+                        
+                        <!-- Row 1 - Leader -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <span class="text-2xl mr-2">🥇</span>
+                                    <span class="text-xl font-bold">1</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <div class="font-semibold text-gray-900">Jan Kowalski</div>
+                                    <div class="text-sm text-gray-500">Open</div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                    8 ryb
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center font-semibold text-gray-900">452 cm</td>
+                            <td class="px-6 py-4 text-center text-gray-600">56.5 cm</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-sky-100 text-sky-800">
+                                    78 cm
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-xl font-bold text-sky-600">452</span>
+                            </td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-500">2 min temu</td>
+                        </tr>
+                        
+                        <!-- Row 2 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <span class="text-2xl mr-2">🥈</span>
+                                    <span class="text-xl font-bold">2</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <div class="font-semibold text-gray-900">Piotr Nowak</div>
+                                    <div class="text-sm text-gray-500">Open</div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                    7 ryb
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center font-semibold text-gray-900">438 cm</td>
+                            <td class="px-6 py-4 text-center text-gray-600">62.6 cm</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-sky-100 text-sky-800">
+                                    82 cm
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-xl font-bold text-sky-600">438</span>
+                            </td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-500">15 min temu</td>
+                        </tr>
+                        
+                        <!-- Row 3 -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <span class="text-2xl mr-2">🥉</span>
+                                    <span class="text-xl font-bold">3</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <div class="font-semibold text-gray-900">Marek Wiśniewski</div>
+                                    <div class="text-sm text-gray-500">Open</div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                    8 ryb
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center font-semibold text-gray-900">421 cm</td>
+                            <td class="px-6 py-4 text-center text-gray-600">52.6 cm</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-sky-100 text-sky-800">
+                                    71 cm
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-xl font-bold text-sky-600">421</span>
+                            </td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-500">28 min temu</td>
+                        </tr>
+                        
+                        <!-- Row 4-8 - Regular rows -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="px-6 py-4 font-semibold text-gray-600">4</td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <div class="font-semibold text-gray-900">Anna Kowalczyk</div>
+                                    <div class="text-sm text-gray-500">Kobiety</div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                    6 ryb
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center font-semibold text-gray-900">405 cm</td>
+                            <td class="px-6 py-4 text-center text-gray-600">67.5 cm</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-sky-100 text-sky-800">
+                                    85 cm
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-xl font-bold text-sky-600">405</span>
+                            </td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-500">5 min temu</td>
+                        </tr>
+                        
+                        <!-- More rows... -->
+                        <tr class="hover:bg-gray-50 transition">
+                            <td class="px-6 py-4 font-semibold text-gray-600">5</td>
+                            <td class="px-6 py-4">
+                                <div>
+                                    <div class="font-semibold text-gray-900">Tomasz Dąbrowski</div>
+                                    <div class="text-sm text-gray-500">Open</div>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                    7 ryb
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center font-semibold text-gray-900">398 cm</td>
+                            <td class="px-6 py-4 text-center text-gray-600">56.9 cm</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-sky-100 text-sky-800">
+                                    69 cm
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-xl font-bold text-sky-600">398</span>
+                            </td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-500">42 min temu</td>
+                        </tr>
+                        
+                        <!-- Highlighted current user row -->
+                        <tr class="highlight-user">
+                            <td class="px-6 py-4 font-semibold text-gray-900">12</td>
+                            <td class="px-6 py-4">
+                                <div class="flex items-center">
+                                    <div>
+                                        <div class="font-semibold text-gray-900">Ty - Krzysztof Nowicki</div>
+                                        <div class="text-sm text-gray-500">Open</div>
+                                    </div>
+                                    <span class="ml-2 px-2 py-0.5 bg-amber-500 text-white text-xs rounded font-semibold">TY</span>
+                                </div>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-green-100 text-green-800">
+                                    5 ryb
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center font-semibold text-gray-900">325 cm</td>
+                            <td class="px-6 py-4 text-center text-gray-600">65.0 cm</td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm font-medium bg-sky-100 text-sky-800">
+                                    73 cm
+                                </span>
+                            </td>
+                            <td class="px-6 py-4 text-center">
+                                <span class="text-xl font-bold text-sky-600">325</span>
+                            </td>
+                            <td class="px-6 py-4 text-center text-sm text-gray-500">12 min temu</td>
+                        </tr>
+                        
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Mobile Card View -->
+            <div class="md:hidden space-y-4 p-4">
+                
+                <!-- Card 1 -->
+                <div class="bg-gray-50 rounded-lg p-4 border-l-4 border-yellow-400">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-2">🥇</span>
+                            <span class="text-2xl font-bold">1</span>
+                        </div>
+                        <span class="text-2xl font-bold text-sky-600">452 pkt</span>
+                    </div>
+                    <div class="mb-2">
+                        <div class="font-semibold text-lg text-gray-900">Jan Kowalski</div>
+                        <div class="text-sm text-gray-500">Open</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-center">
+                        <div>
+                            <div class="text-xs text-gray-500">Ryby</div>
+                            <div class="font-semibold">8</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500">Suma</div>
+                            <div class="font-semibold">452 cm</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500">Max</div>
+                            <div class="font-semibold">78 cm</div>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-500 text-right">2 min temu</div>
+                </div>
+                
+                <!-- Card 2 -->
+                <div class="bg-gray-50 rounded-lg p-4 border-l-4 border-gray-300">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center">
+                            <span class="text-2xl mr-2">🥈</span>
+                            <span class="text-2xl font-bold">2</span>
+                        </div>
+                        <span class="text-2xl font-bold text-sky-600">438 pkt</span>
+                    </div>
+                    <div class="mb-2">
+                        <div class="font-semibold text-lg text-gray-900">Piotr Nowak</div>
+                        <div class="text-sm text-gray-500">Open</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-center">
+                        <div>
+                            <div class="text-xs text-gray-500">Ryby</div>
+                            <div class="font-semibold">7</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500">Suma</div>
+                            <div class="font-semibold">438 cm</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500">Max</div>
+                            <div class="font-semibold">82 cm</div>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-500 text-right">15 min temu</div>
+                </div>
+                
+                <!-- Current User Card - Highlighted -->
+                <div class="bg-amber-50 rounded-lg p-4 border-l-4 border-amber-500">
+                    <div class="flex items-center justify-between mb-3">
+                        <div class="flex items-center">
+                            <span class="text-2xl font-bold">12</span>
+                            <span class="ml-2 px-2 py-0.5 bg-amber-500 text-white text-xs rounded font-semibold">TY</span>
+                        </div>
+                        <span class="text-2xl font-bold text-sky-600">325 pkt</span>
+                    </div>
+                    <div class="mb-2">
+                        <div class="font-semibold text-lg text-gray-900">Krzysztof Nowicki</div>
+                        <div class="text-sm text-gray-500">Open</div>
+                    </div>
+                    <div class="grid grid-cols-3 gap-2 text-center">
+                        <div>
+                            <div class="text-xs text-gray-500">Ryby</div>
+                            <div class="font-semibold">5</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500">Suma</div>
+                            <div class="font-semibold">325 cm</div>
+                        </div>
+                        <div>
+                            <div class="text-xs text-gray-500">Max</div>
+                            <div class="font-semibold">73 cm</div>
+                        </div>
+                    </div>
+                    <div class="mt-2 text-xs text-gray-500 text-right">12 min temu</div>
+                </div>
+                
+            </div>
+            
+            <!-- Pagination -->
+            <div class="px-6 py-4 bg-gray-50 border-t border-gray-200 flex items-center justify-between">
+                <div class="text-sm text-gray-600">
+                    Wyświetlanie 1-20 z 85 zawodników
+                </div>
+                <div class="flex space-x-2">
+                    <button class="px-3 py-1 border border-gray-300 rounded hover:bg-gray-100 disabled:opacity-50" disabled>
+                        Poprzednia
+                    </button>
+                    <button class="px-3 py-1 bg-sky-600 text-white rounded">1</button>
+                    <button class="px-3 py-1 border border-gray-300 rounded hover:bg-gray-100">2</button>
+                    <button class="px-3 py-1 border border-gray-300 rounded hover:bg-gray-100">3</button>
+                    <button class="px-3 py-1 border border-gray-300 rounded hover:bg-gray-100">
+                        Następna
+                    </button>
+                </div>
+            </div>
+            
+        </div>
+
+        <!-- Info Box -->
+        <div class="mt-6 bg-blue-50 border border-blue-200 rounded-lg p-4">
+            <h3 class="font-semibold text-blue-900 mb-2">ℹ️ Informacje o tabeli</h3>
+            <ul class="text-sm text-blue-800 space-y-1">
+                <li>• Tabela aktualizuje się automatycznie co 30 sekund</li>
+                <li>• Twoja pozycja jest zawsze podświetlona na żółto</li>
+                <li>• Kliknij na zawodnika aby zobaczyć szczegóły jego połowów</li>
+                <li>• Limity: min. 25 cm, max. 10 ryb na turę</li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- JavaScript for real-time updates simulation -->
+    <script>
+        // Symulacja aktualizacji w czasie rzeczywistym
+        // W produkcji: połączenie WebSocket lub polling do API endpoint
+        // GET /api/competitions/{id}/leaderboard?updated_since={timestamp}
+        
+        function updateLeaderboard() {
+            console.log('Sprawdzanie nowych wyników...');
+            // Fetch new data from API
+            // Update table rows
+            // Highlight changed rows with animation
+        }
+        
+        // Auto-refresh co 30 sekund
+        setInterval(updateLeaderboard, 30000);
+        
+        // Scroll to current user position
+        window.addEventListener('load', function() {
+            const userRow = document.querySelector('.highlight-user');
+            if (userRow && window.innerWidth >= 768) {
+                userRow.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }
+        });
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,589 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Instrukcja obsługi platformy xTraMarlin - dowiedz się jak korzystać z systemu zawodów spinningowych i kajakowych">
+    <meta name="keywords" content="instrukcja, jak korzystać, xTraMarlin, zawody spinningowe, live score, tutorial">
+    <title>Instrukcja - xTraMarlin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        .step-number {
+            background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%);
+        }
+    </style>
+</head>
+<body class="font-sans antialiased bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-sky-600">xTraMarlin</a>
+                    <span class="ml-4 text-gray-600">/ Instrukcja</span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="index.html" class="text-gray-700 hover:text-sky-600 transition">Strona główna</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cel: Krok po kroku pokazać jak korzystać z platformy dla każdej grupy -->
+    <!-- SEO: Strukturalne nagłówki, jasne sekcje, słowa kluczowe jak "jak", "instrukcja", "krok po kroku" -->
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
+        
+        <!-- Header -->
+        <div class="text-center mb-16">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900 mb-4">Instrukcja obsługi</h1>
+            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+                Wszystko co musisz wiedzieć o korzystaniu z xTraMarlin.<br/>
+                Wybierz swoją rolę i dowiedz się jak zacząć.
+            </p>
+        </div>
+
+        <!-- Role Selection -->
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+            <a href="#dla-organizatorow" class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition text-center">
+                <div class="text-5xl mb-4">🏆</div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Dla organizatorów</h3>
+                <p class="text-gray-600 mb-4">Jak założyć i zarządzać zawodami</p>
+                <span class="text-sky-600 font-semibold">Zobacz instrukcję →</span>
+            </a>
+            
+            <a href="#dla-zawodnikow" class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition text-center">
+                <div class="text-5xl mb-4">🎣</div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Dla zawodników</h3>
+                <p class="text-gray-600 mb-4">Jak się zapisać i zgłaszać połowy</p>
+                <span class="text-sky-600 font-semibold">Zobacz instrukcję →</span>
+            </a>
+            
+            <a href="#dla-sedziow" class="bg-white rounded-xl p-8 shadow-md hover:shadow-lg transition text-center">
+                <div class="text-5xl mb-4">✅</div>
+                <h3 class="text-2xl font-bold text-gray-900 mb-2">Dla sędziów</h3>
+                <p class="text-gray-600 mb-4">Jak weryfikować i punktować</p>
+                <span class="text-sky-600 font-semibold">Zobacz instrukcję →</span>
+            </a>
+        </div>
+
+        <!-- Dla Organizatorów -->
+        <section id="dla-organizatorow" class="mb-20">
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 flex items-center">
+                    <span class="text-5xl mr-4">🏆</span>
+                    Instrukcja dla organizatorów
+                </h2>
+                
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            1
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Załóż konto organizatora</h3>
+                        <p class="text-gray-600 mb-4">
+                            Zarejestruj się na platformie wybierając rolę "Organizator". Wypełnij dane swojej 
+                            organizacji/klubu. Po weryfikacji przez nasz zespół (zazwyczaj do 24h) otrzymasz 
+                            dostęp do panelu organizatora.
+                        </p>
+                        <div class="bg-sky-50 border-l-4 border-sky-600 p-4 rounded">
+                            <p class="text-sm text-sky-900">
+                                <strong>Potrzebujesz:</strong> Dane organizacji (nazwa, NIP/REGON), dane kontaktowe, 
+                                dowód wcześniejszej działalności (opcjonalnie).
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            2
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Utwórz cykl zawodów</h3>
+                        <p class="text-gray-600 mb-4">
+                            W panelu organizatora kliknij "Nowy cykl". Cykl to seria zawodów (np. całoroczny puchar). 
+                            Możesz też utworzyć pojedyncze zawody jeśli nie planujesz cyklu.
+                        </p>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-start">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span class="text-gray-700">Nazwa cyklu (np. "Puchar Polski Spinning 2024")</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span class="text-gray-700">Dyscyplina: spinning, kajak, float tube</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span class="text-gray-700">Liczba tur w cyklu</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span class="text-gray-700">Zasady punktacji zbiorczej</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            3
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Skonfiguruj turę zawodów</h3>
+                        <p class="text-gray-600 mb-4">
+                            Dla każdej tury ustaw szczegóły: datę, lokalizację, regulamin i limity.
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-4">
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-gray-900 mb-2">Podstawowe dane</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Data i godziny (start, koniec)</li>
+                                    <li>• Miejsce zawodów</li>
+                                    <li>• Limit miejsc</li>
+                                    <li>• Opłata startowa</li>
+                                </ul>
+                            </div>
+                            <div class="bg-gray-50 rounded-lg p-4">
+                                <h4 class="font-semibold text-gray-900 mb-2">Regulamin techniczny</h4>
+                                <ul class="text-sm text-gray-600 space-y-1">
+                                    <li>• Minimalna długość ryby (np. 25 cm)</li>
+                                    <li>• Maksymalna liczba ryb (np. 10)</li>
+                                    <li>• Gatunki punktowane</li>
+                                    <li>• Bonusy (np. za najdłuższą)</li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded">
+                            <p class="text-sm text-amber-900">
+                                <strong>Ważne:</strong> Regulamin będzie widoczny dla wszystkich uczestników. 
+                                System automatycznie będzie pilnował limitów.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            4
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Dodaj sędziów</h3>
+                        <p class="text-gray-600 mb-4">
+                            Zaproś sędziów przez email lub dodaj ich konta ręcznie. Każdy sędzia otrzyma dostęp 
+                            do panelu weryfikacji zdjęć dla danej tury.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            5
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Otwórz zapisy</h3>
+                        <p class="text-gray-600 mb-4">
+                            Opublikuj zawody i otwórz zapisy. Link do zawodów możesz udostępnić na swoich social mediach. 
+                            Zawodnicy będą mogli się zapisywać online z płatnością lub bez.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 6 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            6
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Monitoruj zawody w czasie rzeczywistym</h3>
+                        <p class="text-gray-600 mb-4">
+                            W dniu zawodów otwórz panel live. Będziesz widzieć wszystkie zgłoszenia ryb, 
+                            status weryfikacji, aktualną tabelę wyników. Możesz też projektować tabelę na ekranie.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 7 -->
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            7
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Zakończ turę i generuj wyniki</h3>
+                        <p class="text-gray-600 mb-4">
+                            Po zakończeniu czasu zawodów kliknij "Zamknij turę". System automatycznie wygeneruje:
+                        </p>
+                        <div class="space-y-2 mb-4">
+                            <div class="flex items-start">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span class="text-gray-700">Finalne wyniki w PDF</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span class="text-gray-700">Dyplomy dla pierwszych miejsc</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span class="text-gray-700">Aktualizację klasyfikacji cyklu</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span class="text-gray-700">Email do wszystkich uczestników</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Dla Zawodników -->
+        <section id="dla-zawodnikow" class="mb-20">
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 flex items-center">
+                    <span class="text-5xl mr-4">🎣</span>
+                    Instrukcja dla zawodników
+                </h2>
+                
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            1
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Załóż profil zawodnika</h3>
+                        <p class="text-gray-600 mb-4">
+                            Zarejestruj się podając podstawowe dane. Twój profil będzie zawierał historię wszystkich 
+                            twoich startów, statystyki i ranking.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            2
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Znajdź zawody i zapisz się</h3>
+                        <p class="text-gray-600 mb-4">
+                            Przeglądaj listę nadchodzących zawodów. Możesz filtrować po lokalizacji, dyscyplinie lub dacie. 
+                            Kliknij "Zapisz się" i wypełnij formularz zgłoszeniowy.
+                        </p>
+                        <div class="bg-sky-50 border-l-4 border-sky-600 p-4 rounded">
+                            <p class="text-sm text-sky-900">
+                                <strong>Uwaga:</strong> Sprawdź regulamin przed zapisaniem się. Niektóre zawody 
+                                wymagają opłaty startowej.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            3
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">W dniu zawodów - zgłaszaj połowy</h3>
+                        <p class="text-gray-600 mb-4">
+                            Po złowieniu ryby zrób zdjęcie z miarką zgodnie z regulaminem catch & release. 
+                            Następnie otwórz aplikację i:
+                        </p>
+                        <div class="space-y-3 mb-4">
+                            <div class="flex items-start">
+                                <span class="text-sky-600 font-bold mr-3">1.</span>
+                                <span class="text-gray-700">Kliknij "Zgłoś rybę" w aktywnych zawodach</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-sky-600 font-bold mr-3">2.</span>
+                                <span class="text-gray-700">Zrób lub dodaj zdjęcie z galerii</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-sky-600 font-bold mr-3">3.</span>
+                                <span class="text-gray-700">System automatycznie rozpozna długość (możesz poprawić)</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-sky-600 font-bold mr-3">4.</span>
+                                <span class="text-gray-700">Wybierz gatunek z listy</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-sky-600 font-bold mr-3">5.</span>
+                                <span class="text-gray-700">Wyślij do weryfikacji</span>
+                            </div>
+                        </div>
+                        <div class="bg-amber-50 border-l-4 border-amber-500 p-4 rounded">
+                            <p class="text-sm text-amber-900">
+                                <strong>Ważne:</strong> Zdjęcie musi być wyraźne, ryba musi być widoczna w całości 
+                                z miarką/matą pomiarową. Przestrzegaj zasad C&R - bezpieczeństwo ryby to priorytet!
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 4 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            4
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Śledź wyniki na żywo</h3>
+                        <p class="text-gray-600 mb-4">
+                            Otwórz tabelę live i zobacz swoją pozycję w czasie rzeczywistym. Twój wiersz jest 
+                            podświetlony, więc łatwo się odnajdziesz. Możesz też zobaczyć zdjęcia ryb innych zawodników.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 5 -->
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            5
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Po zawodach - dyplomy i statystyki</h3>
+                        <p class="text-gray-600 mb-4">
+                            Po zakończeniu zawodów w swoim profilu znajdziesz:
+                        </p>
+                        <div class="space-y-2">
+                            <div class="flex items-start">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span class="text-gray-700">Finalne wyniki i swoją pozycję</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span class="text-gray-700">Dyplom do pobrania (jeśli byłeś na podium)</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span class="text-gray-700">Statystyki: średnia długość, najwięsza ryba, ranking w cyklu</span>
+                            </div>
+                            <div class="flex items-start">
+                                <span class="text-green-600 mr-2">✓</span>
+                                <span class="text-gray-700">Galerię wszystkich swoich zdjęć</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Dla Sędziów -->
+        <section id="dla-sedziow" class="mb-20">
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 flex items-center">
+                    <span class="text-5xl mr-4">✅</span>
+                    Instrukcja dla sędziów
+                </h2>
+                
+                <!-- Step 1 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            1
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Uzyskaj dostęp do panelu sędziego</h3>
+                        <p class="text-gray-600 mb-4">
+                            Organizator doda Cię do zawodów jako sędzia. Otrzymasz email z linkiem aktywacyjnym 
+                            i dostępem do panelu weryfikacji.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Step 2 -->
+                <div class="flex flex-col md:flex-row gap-6 mb-12 pb-12 border-b border-gray-200">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            2
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Weryfikuj zgłoszenia w czasie rzeczywistym</h3>
+                        <p class="text-gray-600 mb-4">
+                            W panelu sędziego widzisz kolejkę zgłoszeń oczekujących na weryfikację. 
+                            Dla każdego zgłoszenia:
+                        </p>
+                        <div class="bg-gray-50 rounded-lg p-6 mb-4">
+                            <h4 class="font-semibold text-gray-900 mb-3">Sprawdź:</h4>
+                            <div class="space-y-2">
+                                <div class="flex items-start">
+                                    <span class="text-sky-600 mr-2">•</span>
+                                    <span class="text-gray-700">Czy zdjęcie jest wyraźne i kompletne</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-sky-600 mr-2">•</span>
+                                    <span class="text-gray-700">Czy ryba jest prawidłowo zmierzona</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-sky-600 mr-2">•</span>
+                                    <span class="text-gray-700">Czy długość spełnia minimum regulaminowe</span>
+                                </div>
+                                <div class="flex items-start">
+                                    <span class="text-sky-600 mr-2">•</span>
+                                    <span class="text-gray-700">Czy gatunek jest poprawnie określony</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Step 3 -->
+                <div class="flex flex-col md:flex-row gap-6">
+                    <div class="flex-shrink-0">
+                        <div class="w-16 h-16 step-number rounded-full flex items-center justify-center text-white text-2xl font-bold">
+                            3
+                        </div>
+                    </div>
+                    <div class="flex-1">
+                        <h3 class="text-2xl font-bold text-gray-900 mb-4">Podejmij decyzję</h3>
+                        <p class="text-gray-600 mb-4">
+                            Masz trzy opcje:
+                        </p>
+                        <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
+                            <div class="bg-green-50 border-2 border-green-500 rounded-lg p-4">
+                                <div class="text-2xl mb-2">✅</div>
+                                <h4 class="font-bold text-green-900 mb-2">Zatwierdź</h4>
+                                <p class="text-sm text-green-800">Wszystko zgodne z regulaminem</p>
+                            </div>
+                            <div class="bg-amber-50 border-2 border-amber-500 rounded-lg p-4">
+                                <div class="text-2xl mb-2">✏️</div>
+                                <h4 class="font-bold text-amber-900 mb-2">Popraw</h4>
+                                <p class="text-sm text-amber-800">Zatwierdź ze zmianą długości lub gatunku</p>
+                            </div>
+                            <div class="bg-red-50 border-2 border-red-500 rounded-lg p-4">
+                                <div class="text-2xl mb-2">❌</div>
+                                <h4 class="font-bold text-red-900 mb-2">Odrzuć</h4>
+                                <p class="text-sm text-red-800">Zdjęcie nie spełnia wymogów (z komentarzem)</p>
+                            </div>
+                        </div>
+                        <div class="mt-4 bg-sky-50 border-l-4 border-sky-600 p-4 rounded">
+                            <p class="text-sm text-sky-900">
+                                <strong>Podpowiedź:</strong> Po zatwierdzeniu tabela wyników aktualizuje się automatycznie. 
+                                Zawodnik od razu widzi swoją rybę w zestawieniu.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- FAQ -->
+        <section class="mb-20">
+            <div class="bg-gradient-to-br from-sky-50 to-blue-50 rounded-2xl p-8 md:p-12">
+                <h2 class="text-3xl md:text-4xl font-bold text-gray-900 mb-8 text-center">Najczęściej zadawane pytania</h2>
+                
+                <div class="space-y-6 max-w-4xl mx-auto">
+                    <details class="bg-white rounded-lg p-6 shadow-sm">
+                        <summary class="font-semibold text-lg text-gray-900 cursor-pointer">
+                            Czy mogę korzystać z platformy na telefonie?
+                        </summary>
+                        <p class="mt-4 text-gray-600">
+                            Tak! xTraMarlin jest w pełni responsywny i działa na wszystkich urządzeniach. 
+                            Zawodnicy zazwyczaj korzystają z telefonu do zgłaszania połowów, a organizatorzy 
+                            z tabletu lub laptopa do zarządzania zawodami.
+                        </p>
+                    </details>
+                    
+                    <details class="bg-white rounded-lg p-6 shadow-sm">
+                        <summary class="font-semibold text-lg text-gray-900 cursor-pointer">
+                            Co jeśli nie ma zasięgu internetu na łowisku?
+                        </summary>
+                        <p class="mt-4 text-gray-600">
+                            Aplikacja pozwala zapisać zdjęcia offline. Gdy pojawi się zasięg, zdjęcia automatycznie 
+                            się wyślą do weryfikacji. Zawsze zalecamy sprawdzenie zasięgu przed zawodami.
+                        </p>
+                    </details>
+                    
+                    <details class="bg-white rounded-lg p-6 shadow-sm">
+                        <summary class="font-semibold text-lg text-gray-900 cursor-pointer">
+                            Ile kosztuje korzystanie z platformy?
+                        </summary>
+                        <p class="mt-4 text-gray-600">
+                            Dla zawodników platforma jest całkowicie darmowa. Organizatorzy płacą opłatę za każdą turę 
+                            zawodów w zależności od liczby uczestników. Szczegóły w 
+                            <a href="oferta.html" class="text-sky-600 hover:underline">ofercie</a>.
+                        </p>
+                    </details>
+                    
+                    <details class="bg-white rounded-lg p-6 shadow-sm">
+                        <summary class="font-semibold text-lg text-gray-900 cursor-pointer">
+                            Czy mogę przetestować platformę przed zawodami?
+                        </summary>
+                        <p class="mt-4 text-gray-600">
+                            Tak! Oferujemy zawody testowe gdzie możesz przećwiczyć wszystkie funkcje bez konsekwencji. 
+                            Skontaktuj się z nami aby uzyskać dostęp do środowiska testowego.
+                        </p>
+                    </details>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA -->
+        <section class="text-center">
+            <div class="bg-white rounded-2xl shadow-lg p-8 md:p-12">
+                <h2 class="text-3xl font-bold text-gray-900 mb-4">Masz więcej pytań?</h2>
+                <p class="text-xl text-gray-600 mb-8">
+                    Skontaktuj się z nami - chętnie pomożemy!
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="mailto:kontakt@xtramarlin.pl" class="px-8 py-4 bg-sky-600 text-white rounded-lg font-semibold hover:bg-sky-700 transition">
+                        Wyślij email
+                    </a>
+                    <a href="index.html" class="px-8 py-4 border-2 border-sky-600 text-sky-600 rounded-lg font-semibold hover:bg-sky-50 transition">
+                        Wróć na stronę główną
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12 mt-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-2">&copy; 2024 xTraMarlin. Wszystkie prawa zastrzeżone.</p>
+            <div class="space-x-4">
+                <a href="index.html" class="hover:text-white transition">Strona główna</a>
+                <a href="o-nas.html" class="hover:text-white transition">O nas</a>
+                <a href="oferta.html" class="hover:text-white transition">Oferta</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="xTraMarlin - Profesjonalna platforma do zarządzania zawodami spinningowymi i kajakowymi. Live score, wyniki, statystyki i dyplomy dla zawodników, organizatorów i kibiców.">
+    <meta name="keywords" content="zawody spinningowe, zawody kajakowe, live score, wyniki zawodów, catch and release, tury spinningowe, statystyki wędkarskie">
+    <title>xTraMarlin - Platforma Zawodów Spinningowych i Kajakowych</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        /* Custom animations and styles */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .fade-in { animation: fadeIn 0.6s ease-out; }
+        .gradient-blue { background: linear-gradient(135deg, #0EA5E9 0%, #0284C7 100%); }
+        .gradient-green { background: linear-gradient(135deg, #10B981 0%, #059669 100%); }
+    </style>
+</head>
+<body class="font-sans antialiased text-gray-900">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm sticky top-0 z-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span class="text-2xl font-bold text-sky-600">xTraMarlin</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#jak-dziala" class="text-gray-700 hover:text-sky-600 transition">Jak działa</a>
+                    <a href="#funkcje" class="text-gray-700 hover:text-sky-600 transition">Funkcje</a>
+                    <a href="#dla-kogo" class="text-gray-700 hover:text-sky-600 transition">Dla kogo</a>
+                    <a href="o-nas.html" class="text-gray-700 hover:text-sky-600 transition">O nas</a>
+                    <a href="instrukcja.html" class="text-gray-700 hover:text-sky-600 transition">Instrukcja</a>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="#kontakt" class="px-4 py-2 text-sky-600 border border-sky-600 rounded-lg hover:bg-sky-50 transition">Dołącz</a>
+                    <a href="#kontakt" class="px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition">Zgłoś zawody</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <!-- Cel: Natychmiastowe przekazanie wartości dla 3 grup: zawodnicy, organizatorzy, kibice -->
+    <!-- Integracja: Link CTA do formularza zgłoszeniowego / rejestracji -->
+    <section id="hero" class="gradient-blue text-white py-20 md:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center fade-in">
+            <h1 class="text-4xl md:text-6xl font-bold mb-6">
+                Zawody spinningowe i kajakowe<br/>w jednej platformie
+            </h1>
+            <p class="text-xl md:text-2xl mb-8 text-sky-100 max-w-3xl mx-auto">
+                Live score, wyniki na żywo, zdjęcia ryb, statystyki i dyplomy.<br/>
+                Wszystko czego potrzebujesz dla zawodów catch & release.
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="#kontakt" class="px-8 py-4 bg-white text-sky-600 rounded-lg font-semibold hover:bg-gray-100 transition text-lg">
+                    Zgłoś swoje zawody
+                </a>
+                <a href="#jak-dziala" class="px-8 py-4 bg-sky-700 text-white rounded-lg font-semibold hover:bg-sky-800 transition text-lg border-2 border-sky-500">
+                    Zobacz jak działa
+                </a>
+            </div>
+            <div class="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6 max-w-4xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                    <div class="text-3xl font-bold mb-2">🎣</div>
+                    <h3 class="font-semibold text-lg mb-2">Dla zawodników</h3>
+                    <p class="text-sky-100">Twój profil, wyniki i statystyki w jednym miejscu</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                    <div class="text-3xl font-bold mb-2">🏆</div>
+                    <h3 class="font-semibold text-lg mb-2">Dla organizatorów</h3>
+                    <p class="text-sky-100">Obsługa całego cyklu zawodów bez papieru</p>
+                </div>
+                <div class="bg-white/10 backdrop-blur-sm rounded-lg p-6">
+                    <div class="text-3xl font-bold mb-2">📊</div>
+                    <h3 class="font-semibold text-lg mb-2">Dla kibiców</h3>
+                    <p class="text-sky-100">Tabela live i emocje w czasie rzeczywistym</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jak działa -->
+    <!-- Cel: Pokazać prostotę użycia w 3-4 krokach -->
+    <!-- Integracja: Linki do instrukcji szczegółowej -->
+    <section id="jak-dziala" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Jak to działa?</h2>
+            <p class="text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+                Prosta obsługa od rejestracji do ceremonii. Wszystko online.
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-sky-600">1</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Rejestracja zawodów</h3>
+                    <p class="text-gray-600">Organizator zakłada cykl zawodów i ustawia parametry: tury, limity, zasady punktacji</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-sky-600">2</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Zgłoszenia uczestników</h3>
+                    <p class="text-gray-600">Zawodnicy zapisują się przez aplikację i widzą listę startową oraz regulamin</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-sky-600">3</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Live score w trakcie</h3>
+                    <p class="text-gray-600">Zdjęcia ryb trafiają do systemu, sędziowie weryfikują, tabela aktualizuje się na żywo</p>
+                </div>
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-sky-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                        <span class="text-2xl font-bold text-sky-600">4</span>
+                    </div>
+                    <h3 class="text-xl font-semibold mb-3">Wyniki i dyplomy</h3>
+                    <p class="text-gray-600">Automatyczne generowanie dyplomów, statystyk i podsumowania całego cyklu</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Funkcje -->
+    <!-- Cel: Przełożyć funkcje techniczne na język korzyści dla użytkownika -->
+    <!-- Integracja: Linki do API endpoints lub dokumentacji feature'ów -->
+    <section id="funkcje" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-4">Funkcje platformy</h2>
+            <p class="text-xl text-gray-600 text-center mb-16 max-w-2xl mx-auto">
+                Wszystko co potrzebne do profesjonalnych zawodów
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Feature Card 1 -->
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+                    <div class="text-4xl mb-4">📸</div>
+                    <h3 class="text-xl font-semibold mb-3">Zdjęcia ryb z weryfikacją</h3>
+                    <p class="text-gray-600 mb-4">Zawodnik robi zdjęcie z miarką, system automatycznie rozpoznaje długość, sędzia weryfikuje jednym kliknięciem.</p>
+                    <span class="text-sm text-sky-600 font-semibold">Catch & release bez stresu</span>
+                </div>
+                
+                <!-- Feature Card 2 -->
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+                    <div class="text-4xl mb-4">📊</div>
+                    <h3 class="text-xl font-semibold mb-3">Statystyki i ranking</h3>
+                    <p class="text-gray-600 mb-4">Profil zawodnika ze wszystkimi wynikami, średnimi, rekordami. Ranking całego cyklu w czasie rzeczywistym.</p>
+                    <span class="text-sm text-sky-600 font-semibold">Zobacz swój progres</span>
+                </div>
+                
+                <!-- Feature Card 3 -->
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+                    <div class="text-4xl mb-4">🏅</div>
+                    <h3 class="text-xl font-semibold mb-3">Dyplomy automatyczne</h3>
+                    <p class="text-gray-600 mb-4">Po zakończeniu tury system generuje dyplomy PDF z logotypami sponsorów. Gotowe do druku lub wysyłki email.</p>
+                    <span class="text-sm text-sky-600 font-semibold">Oszczędność czasu</span>
+                </div>
+                
+                <!-- Feature Card 4 -->
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+                    <div class="text-4xl mb-4">⚡</div>
+                    <h3 class="text-xl font-semibold mb-3">Live score</h3>
+                    <p class="text-gray-600 mb-4">Tabela wyników aktualizuje się na bieżąco. Kibice i rodziny mogą śledzić zawody z domu lub z brzegu.</p>
+                    <span class="text-sm text-sky-600 font-semibold">Emocje w czasie rzeczywistym</span>
+                </div>
+                
+                <!-- Feature Card 5 -->
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+                    <div class="text-4xl mb-4">🎯</div>
+                    <h3 class="text-xl font-semibold mb-3">Limity i zasady</h3>
+                    <p class="text-gray-600 mb-4">Ustaw min. długość, max. ryb na turę, gatunki punktowane. System automatycznie pilnuje regulaminu.</p>
+                    <span class="text-sm text-sky-600 font-semibold">Fair play zagwarantowane</span>
+                </div>
+                
+                <!-- Feature Card 6 -->
+                <div class="bg-gray-50 rounded-xl p-6 hover:shadow-lg transition">
+                    <div class="text-4xl mb-4">🔄</div>
+                    <h3 class="text-xl font-semibold mb-3">Cykle turniejów</h3>
+                    <p class="text-gray-600 mb-4">Zarządzaj całym sezonem: wiele tur, punktacja zbiorcza, automatyczne przeliczanie po każdych zawodach.</p>
+                    <span class="text-sm text-sky-600 font-semibold">Pełna kontrola sezonu</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Dla kogo -->
+    <!-- Cel: Pokazać konkretne korzyści dla każdej z 3 grup odbiorców -->
+    <section id="dla-kogo" class="py-20 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Dla kogo jest xTraMarlin?</h2>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <!-- Zawodnicy -->
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="text-5xl mb-4">🎣</div>
+                    <h3 class="text-2xl font-bold mb-4 text-sky-600">Zawodnicy</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Jeden profil z historią wszystkich startów</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Statystyki osobiste i porównanie z innymi</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Dyplomy i certyfikaty do pobrania</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Łatwe zgłaszanie połowów z telefonu</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Śledzenie pozycji w tabeli na żywo</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Organizatorzy -->
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="text-5xl mb-4">🏆</div>
+                    <h3 class="text-2xl font-bold mb-4 text-sky-600">Organizatorzy</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Zarządzanie cyklem zawodów w jednym miejscu</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Automatyzacja zgłoszeń i list startowych</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Weryfikacja zdjęć bez papieru i mierzenia</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Automatyczne generowanie wyników i dyplomów</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Panel sponsorów i ich widoczność</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Kibice -->
+                <div class="bg-white rounded-xl p-8 shadow-lg">
+                    <div class="text-5xl mb-4">📺</div>
+                    <h3 class="text-2xl font-bold mb-4 text-sky-600">Kibice i rodziny</h3>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Obserwuj wyniki na żywo z każdego miejsca</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Zobacz zdjęcia złowionych ryb w czasie rzeczywistym</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Śledzenie ulubionego zawodnika w tabeli</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Dostęp do pełnej historii zawodów</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-green-500 mr-2">✓</span>
+                            <span>Emocje bez wychodzenia z domu</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Social Proof -->
+    <!-- Cel: Budować zaufanie przez dane liczbowe i testimoniale -->
+    <!-- Integracja: API do pobrania aktualnych statystyk platformy -->
+    <section id="social-proof" class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-16">Zaufali nam</h2>
+            
+            <!-- Stats -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 mb-16">
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-sky-600 mb-2">250+</div>
+                    <div class="text-gray-600">Zawodów obsłużonych</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-sky-600 mb-2">1500+</div>
+                    <div class="text-gray-600">Aktywnych zawodników</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-sky-600 mb-2">12000+</div>
+                    <div class="text-gray-600">Zweryfikowanych ryb</div>
+                </div>
+                <div class="text-center">
+                    <div class="text-4xl md:text-5xl font-bold text-sky-600 mb-2">98%</div>
+                    <div class="text-gray-600">Zadowolenia organizatorów</div>
+                </div>
+            </div>
+            
+            <!-- Testimonials -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-xl font-bold text-sky-600">MK</span>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Marek Kowalski</div>
+                            <div class="text-sm text-gray-600">Zawodnik</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Wreszcie mogę śledzić wszystkie moje wyniki w jednym miejscu. Tabela na żywo dodaje ogromnych emocji!"</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-xl font-bold text-sky-600">AN</span>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Anna Nowak</div>
+                            <div class="text-sm text-gray-600">Organizatorka</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Oszczędzam kilka godzin na każdych zawodach. Wszystko działa automatycznie, mogę skupić się na uczestnikach."</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-xl p-6">
+                    <div class="flex items-center mb-4">
+                        <div class="w-12 h-12 bg-sky-100 rounded-full flex items-center justify-center mr-3">
+                            <span class="text-xl font-bold text-sky-600">PW</span>
+                        </div>
+                        <div>
+                            <div class="font-semibold">Piotr Wiśniewski</div>
+                            <div class="text-sm text-gray-600">Sponsor</div>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 italic">"Nasz brand jest widoczny na wszystkich dyplomach i w tabeli live. Świetny zwrot z inwestycji!"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <!-- Cel: Ostateczna konwersja - jasne CTA dla dwóch grup -->
+    <!-- Integracja: Linki do formularzy zgłoszeniowych (można zastąpić realnym API) -->
+    <section id="kontakt" class="gradient-green text-white py-20">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl font-bold mb-6">Gotowy na start?</h2>
+            <p class="text-xl mb-10 text-green-100">
+                Dołącz do rosnącej społeczności wędkarzy spinningowych i kajakowych
+            </p>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-2xl mx-auto">
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-4">Organizujesz zawody?</h3>
+                    <p class="mb-6 text-green-100">Sprawdź jak xTraMarlin ułatwi Ci pracę</p>
+                    <a href="mailto:kontakt@xtramarlin.pl?subject=Chcę zgłosić zawody" class="inline-block px-6 py-3 bg-white text-green-600 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        Zgłoś swoje zawody
+                    </a>
+                </div>
+                
+                <div class="bg-white/10 backdrop-blur-sm rounded-xl p-8">
+                    <h3 class="text-2xl font-bold mb-4">Jesteś zawodnikiem?</h3>
+                    <p class="mb-6 text-green-100">Załóż profil i śledź swoje wyniki</p>
+                    <a href="mailto:kontakt@xtramarlin.pl?subject=Chcę dołączyć jako zawodnik" class="inline-block px-6 py-3 bg-white text-green-600 rounded-lg font-semibold hover:bg-gray-100 transition">
+                        Dołącz teraz
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-12">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-white text-xl font-bold mb-4">xTraMarlin</h3>
+                    <p class="text-gray-400">Profesjonalna platforma do zarządzania zawodami spinningowymi i kajakowymi.</p>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Nawigacja</h4>
+                    <ul class="space-y-2">
+                        <li><a href="#jak-dziala" class="hover:text-white transition">Jak działa</a></li>
+                        <li><a href="#funkcje" class="hover:text-white transition">Funkcje</a></li>
+                        <li><a href="#dla-kogo" class="hover:text-white transition">Dla kogo</a></li>
+                        <li><a href="o-nas.html" class="hover:text-white transition">O nas</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Pomoc</h4>
+                    <ul class="space-y-2">
+                        <li><a href="instrukcja.html" class="hover:text-white transition">Instrukcja</a></li>
+                        <li><a href="oferta.html" class="hover:text-white transition">Oferta</a></li>
+                        <li><a href="#kontakt" class="hover:text-white transition">Kontakt</a></li>
+                        <li><a href="#" class="hover:text-white transition">FAQ</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-white font-semibold mb-4">Kontakt</h4>
+                    <ul class="space-y-2">
+                        <li>Email: kontakt@xtramarlin.pl</li>
+                        <li>Tel: +48 123 456 789</li>
+                        <li class="flex space-x-4 mt-4">
+                            <a href="#" class="hover:text-white transition">Facebook</a>
+                            <a href="#" class="hover:text-white transition">Instagram</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            <div class="border-t border-gray-800 mt-8 pt-8 text-center text-gray-500">
+                <p>&copy; 2024 xTraMarlin. Wszystkie prawa zastrzeżone.</p>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>

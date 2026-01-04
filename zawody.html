@@ -1,0 +1,384 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Lista nadchodzących i zakończonych zawodów spinningowych i kajakowych - xTraMarlin">
+    <title>Zawody - xTraMarlin</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="font-sans antialiased bg-gray-50">
+    
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <a href="index.html" class="text-2xl font-bold text-sky-600">xTraMarlin</a>
+                    <span class="ml-4 text-gray-600">/ Zawody</span>
+                </div>
+                <div class="flex space-x-4">
+                    <a href="index.html#kontakt" class="px-4 py-2 bg-sky-600 text-white rounded-lg hover:bg-sky-700 transition">
+                        Zgłoś zawody
+                    </a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Cel: Pokazać listę zawodów w formie przejrzystych kart -->
+    <!-- Integracja: API endpoint GET /api/competitions?status={upcoming|live|finished} -->
+    <!-- Komponenty: CompetitionCard - reusable w różnych widokach -->
+    
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+        
+        <!-- Page Header -->
+        <div class="mb-8">
+            <h1 class="text-3xl md:text-4xl font-bold text-gray-900 mb-2">Zawody</h1>
+            <p class="text-lg text-gray-600">Znajdź zawody w swojej okolicy i zapisz się już teraz</p>
+        </div>
+
+        <!-- Filters -->
+        <div class="bg-white rounded-lg shadow-sm p-4 mb-8">
+            <div class="flex flex-col md:flex-row gap-4">
+                <!-- Status Filter -->
+                <div class="flex space-x-2">
+                    <button class="px-4 py-2 bg-sky-50 text-sky-600 rounded-lg font-semibold border-2 border-sky-600">
+                        Nadchodzące (12)
+                    </button>
+                    <button class="px-4 py-2 text-gray-600 rounded-lg hover:bg-gray-50 border-2 border-transparent">
+                        Trwające (3)
+                    </button>
+                    <button class="px-4 py-2 text-gray-600 rounded-lg hover:bg-gray-50 border-2 border-transparent">
+                        Zakończone (45)
+                    </button>
+                </div>
+                
+                <!-- Type Filter -->
+                <select class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent">
+                    <option>Wszystkie dyscypliny</option>
+                    <option>Spinning</option>
+                    <option>Kajak</option>
+                    <option>Float tube</option>
+                </select>
+                
+                <!-- Location Filter -->
+                <input type="text" placeholder="Lokalizacja..." 
+                       class="px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-sky-500 focus:border-transparent">
+            </div>
+        </div>
+
+        <!-- Competitions Grid -->
+        <!-- Cel: Karty zawodów - reusable component -->
+        <!-- Data z API: nazwa, data, lokalizacja, liczba uczestników, status, featured -->
+        <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            
+            <!-- Competition Card 1 - Featured / Live -->
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden hover:shadow-xl transition border-2 border-green-400">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1544552866-d3ed42536cfd?w=400&h=200&fit=crop" 
+                         alt="Zawody" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 bg-green-500 text-white rounded-full text-sm font-semibold flex items-center">
+                            <span class="w-2 h-2 bg-white rounded-full mr-2 animate-pulse"></span>
+                            NA ŻYWO
+                        </span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center mb-2">
+                        <span class="px-2 py-1 bg-sky-100 text-sky-600 text-xs font-semibold rounded">SPINNING</span>
+                        <span class="ml-2 px-2 py-1 bg-yellow-100 text-yellow-700 text-xs font-semibold rounded">⭐ WYRÓŻNIONE</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Puchar Polski Spinning 2024 - Tura 3</h3>
+                    <div class="space-y-2 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            15 marca 2024 • 08:00-16:00
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Wisła, Warszawa
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                            85 / 100 uczestników
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="leaderboard.html" class="flex-1 px-4 py-2 bg-sky-600 text-white text-center rounded-lg font-semibold hover:bg-sky-700 transition">
+                            Zobacz live
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competition Card 2 - Upcoming -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1559827260-dc66d52bef19?w=400&h=200&fit=crop" 
+                         alt="Zawody" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-semibold">
+                            Za 3 dni
+                        </span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center mb-2">
+                        <span class="px-2 py-1 bg-green-100 text-green-600 text-xs font-semibold rounded">KAJAK</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Mistrzostwa Mazowsza Kayak Fishing</h3>
+                    <div class="space-y-2 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            18 marca 2024 • 06:00-14:00
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Zalew Zegrzyński
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                            42 / 60 uczestników
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="#" class="flex-1 px-4 py-2 bg-sky-600 text-white text-center rounded-lg font-semibold hover:bg-sky-700 transition">
+                            Zapisz się
+                        </a>
+                        <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
+                            Szczegóły
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competition Card 3 - Upcoming -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1515444744559-7be63e1600de?w=400&h=200&fit=crop" 
+                         alt="Zawody" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 bg-blue-500 text-white rounded-full text-sm font-semibold">
+                            Za tydzień
+                        </span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center mb-2">
+                        <span class="px-2 py-1 bg-sky-100 text-sky-600 text-xs font-semibold rounded">SPINNING</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Otwarte Zawody Spinning Float Tube</h3>
+                    <div class="space-y-2 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            22 marca 2024 • 07:00-15:00
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Jezioro Świętajno
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                            28 / 50 uczestników
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="#" class="flex-1 px-4 py-2 bg-sky-600 text-white text-center rounded-lg font-semibold hover:bg-sky-700 transition">
+                            Zapisz się
+                        </a>
+                        <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
+                            Szczegóły
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competition Card 4 - Finished -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition opacity-80">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1502933691298-84fc14542831?w=400&h=200&fit=crop" 
+                         alt="Zawody" class="w-full h-48 object-cover grayscale">
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 bg-gray-500 text-white rounded-full text-sm font-semibold">
+                            Zakończone
+                        </span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center mb-2">
+                        <span class="px-2 py-1 bg-sky-100 text-sky-600 text-xs font-semibold rounded">SPINNING</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Puchar Polski Spinning 2024 - Tura 2</h3>
+                    <div class="space-y-2 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            1 marca 2024
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Wisła, Warszawa
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                            92 uczestników
+                        </div>
+                    </div>
+                    <div class="bg-gray-50 rounded-lg p-3 mb-3">
+                        <div class="text-xs text-gray-500 mb-1">Zwycięzca</div>
+                        <div class="font-semibold text-gray-900">🥇 Jan Kowalski - 512 pkt</div>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="#" class="flex-1 px-4 py-2 border border-gray-300 text-gray-700 text-center rounded-lg hover:bg-gray-50 transition">
+                            Zobacz wyniki
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competition Card 5 - Series -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition border-2 border-purple-300">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1503703294279-c83bdf7b4bf4?w=400&h=200&fit=crop" 
+                         alt="Zawody" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 bg-purple-500 text-white rounded-full text-sm font-semibold">
+                            CYKL
+                        </span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center mb-2">
+                        <span class="px-2 py-1 bg-sky-100 text-sky-600 text-xs font-semibold rounded">SPINNING</span>
+                        <span class="ml-2 px-2 py-1 bg-purple-100 text-purple-600 text-xs font-semibold rounded">8 TUR</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Puchar Polski Spinning 2024 - Sezon</h3>
+                    <div class="space-y-2 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            Luty - Październik 2024
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                            </svg>
+                            3 / 8 tur zakończonych
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z"></path>
+                            </svg>
+                            156 zawodników w cyklu
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="#" class="flex-1 px-4 py-2 bg-sky-600 text-white text-center rounded-lg font-semibold hover:bg-sky-700 transition">
+                            Klasyfikacja generalna
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Competition Card 6 - Registration Open Soon -->
+            <div class="bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition">
+                <div class="relative">
+                    <img src="https://images.unsplash.com/photo-1464047736614-af63643285bf?w=400&h=200&fit=crop" 
+                         alt="Zawody" class="w-full h-48 object-cover">
+                    <div class="absolute top-4 right-4">
+                        <span class="px-3 py-1 bg-orange-500 text-white rounded-full text-sm font-semibold">
+                            Wkrótce
+                        </span>
+                    </div>
+                </div>
+                <div class="p-6">
+                    <div class="flex items-center mb-2">
+                        <span class="px-2 py-1 bg-green-100 text-green-600 text-xs font-semibold rounded">KAJAK</span>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-2">Mistrzostwa Polski Kayak Fishing</h3>
+                    <div class="space-y-2 text-gray-600 mb-4">
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                            </svg>
+                            15 kwietnia 2024 • 05:00-14:00
+                        </div>
+                        <div class="flex items-center">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"></path>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path>
+                            </svg>
+                            Jezioro Mamry, Mazury
+                        </div>
+                    </div>
+                    <div class="bg-orange-50 rounded-lg p-3 mb-3 border border-orange-200">
+                        <div class="text-sm text-orange-800">
+                            🔔 Zapisy otwierają się 1 kwietnia
+                        </div>
+                    </div>
+                    <div class="flex gap-2">
+                        <a href="#" class="flex-1 px-4 py-2 border border-sky-600 text-sky-600 text-center rounded-lg hover:bg-sky-50 transition">
+                            Przypomij mi
+                        </a>
+                        <a href="#" class="px-4 py-2 border border-gray-300 text-gray-700 rounded-lg hover:bg-gray-50 transition">
+                            Szczegóły
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+        <!-- Load More -->
+        <div class="mt-12 text-center">
+            <button class="px-8 py-3 border-2 border-sky-600 text-sky-600 rounded-lg font-semibold hover:bg-sky-50 transition">
+                Załaduj więcej zawodów
+            </button>
+        </div>
+
+    </div>
+
+    <!-- Footer - Simplified -->
+    <footer class="bg-gray-900 text-gray-300 py-8 mt-16">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <p class="mb-2">&copy; 2024 xTraMarlin. Wszystkie prawa zastrzeżone.</p>
+            <div class="space-x-4">
+                <a href="index.html" class="hover:text-white transition">Strona główna</a>
+                <a href="o-nas.html" class="hover:text-white transition">O nas</a>
+                <a href="instrukcja.html" class="hover:text-white transition">Instrukcja</a>
+            </div>
+        </div>
+    </footer>
+
+</body>
+</html>
